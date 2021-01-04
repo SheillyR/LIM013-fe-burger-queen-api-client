@@ -1,5 +1,31 @@
-<p>nav-bar-waiter works!</p>
-<fa-icon [icon]="faHome"></fa-icon>
-<fa-icon [icon]="faClipboardList"></fa-icon>
-<fa-icon [icon]="faSignOutAlt"></fa-icon>
+<div class="nav__container">
+  <nav class="nav">
+    <ul class="nav__list">
+      <div class= "nav__item__left">
+        <li>
+          <a href="" class="nav__link">
+            <fa-icon [icon]="faHome"></fa-icon>
+          </a>
+        </li>
+        <li>
+          <a href="" class="nav__link">
+            <fa-icon [icon]="faClipboardList"></fa-icon>
+          </a>
+        </li>
+      </div>
+      
+      <div class="nav__item__right">
+        <li>
+          <p class="nav__link">Alicia Perez</p>
+        </li>
+        <li>
+          <a href="" class="nav__link">
+            <fa-icon [icon]="faSignOutAlt"></fa-icon>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </nav>
+</div>
+
 
