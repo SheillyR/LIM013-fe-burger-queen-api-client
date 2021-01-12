@@ -18,4 +18,5 @@ export class ApiService {
     let dir = this.url + 'products'
     return this.http.get<ProductI[]>(dir);
   }
+
 }

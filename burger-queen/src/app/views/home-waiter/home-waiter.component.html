@@ -1,7 +1,7 @@
 <app-nav-bar-waiter></app-nav-bar-waiter>
-<app-categories></app-categories>
-<div *ngFor="let prod of product">
-  <h3>{{ prod.name }}</h3>
-  <strong>{{ prod.price }}</strong>
-  <img src="{{prod.image}}" alt="">
-</div>
+<section class="card__order_container">
+  <app-categories></app-categories>
+  <app-order></app-order>
+</section>
+
+<button class="btn btn-primary">Hola</button>

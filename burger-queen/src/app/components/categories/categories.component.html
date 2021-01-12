@@ -1,7 +1,30 @@
-<p>categories works!</p>
-<fa-icon [icon]="faUtensils"></fa-icon>
-<fa-icon [icon]="faHamburger"></fa-icon>
-<fa-icon [icon]="faGlassWhiskey"></fa-icon>
-<fa-icon [icon]="faIceCream"></fa-icon>
-<img src="../../assets/icons/icons8-street-food-100.png" alt="">
-<img src="../../assets/icons/icons8-french-fries-96.png" alt="">
+	<nav class="category">
+		<button class="category__button" (click)="OnCategories('Menu')">
+			<fa-icon [icon]="faUtensils" style="font-size: 30px"></fa-icon>
+		</button>
+		<button class="category__button" (click)="OnCategories('Hamburguesas')">
+			<fa-icon [icon]="faHamburger"  style="font-size: 30px"></fa-icon>
+		</button>
+		<button class="category__button" (click)="OnCategories('Bebidas')">
+			<fa-icon [icon]="faGlassWhiskey"  style="font-size: 30px"></fa-icon>
+		</button>
+		<button class="category__button" (click)="OnCategories('Postres')"> 
+			<fa-icon [icon]="faIceCream"  style="font-size: 30px"></fa-icon>
+		</button>
+		<button  class="category__button" (click)="OnCategories('Combos')">
+			<img class="category__img" src="../../assets/icons/icons8-street-food-100.png" alt="" width="25px" >
+		</button>
+		<button class="category__button" (click)="OnCategories('Complementos')">
+			<img  class="category__img" src="../../assets/icons/icons8-french-fries-96.png" alt="" width="25px">
+		</button>
+	</nav>
+
+	<section class="card__container">
+		<div *ngFor="let product of productCategory">
+			<h3>{{ product.name }}</h3>
+			<strong>{{ product.price }}</strong>
+			<img src="{{product.image}}" alt="">
+		</div>
+	</section>
+
+	<h1>{{ message }}</h1>
