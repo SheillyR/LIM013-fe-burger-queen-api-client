@@ -1,5 +1,5 @@
 import { Component, OnInit, NgModule, OnDestroy } from '@angular/core';
-import { faUtensils, faHamburger, faGlassWhiskey, faIceCream } from '@fortawesome/free-solid-svg-icons';
+import { faUtensils, faHamburger, faGlassWhiskey, faIceCream, faDrumstickBite } from '@fortawesome/free-solid-svg-icons';
 import { ProductI } from '../../models/product.model';
 import { ApiService } from '../../services/api.service';
 import { DataService } from "../../services/data/data.service";
@@ -18,6 +18,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   faHamburger = faHamburger;
   faGlassWhiskey = faGlassWhiskey;
   faIceCream = faIceCream;
+  faDrumstickBite = faDrumstickBite;
 
 
   product!: ProductI[];
