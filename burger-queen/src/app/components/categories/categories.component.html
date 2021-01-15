@@ -1,70 +1,78 @@
-
-	<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<div class="row">
-					<div class="col-sm">
-						<button class="d-block w-100 rounded-3"  (click)="OnCategories('Menu')">
-							<fa-icon [icon]="faUtensils" style="font-size: 35px"></fa-icon>
-							<h5>Todo</h5>
-						</button>
-					</div>
-					<div class="col-sm">
-						<button class="d-block w-100 rounded-3"  (click)="OnCategories('Hamburguesas')">
-							<fa-icon [icon]="faHamburger"  style="font-size: 35px"></fa-icon>
-							<h5>Hamburguesas</h5>
-						</button>
-					</div>
-					<div class="col-sm">
-						<button class="d-block w-100 rounded-3"  (click)="OnCategories('Bebidas')">
-							<fa-icon [icon]="faGlassWhiskey"  style="font-size: 35px"></fa-icon>
-							<h5>Bebidas</h5>
-						</button>
-					</div>
+<div id="carouselExampleControls" class="carousel slide">
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<div class="row">
+				<div class="col-sm">
+					<button class="d-block w-100 rounded-3"  (click)="OnCategories('Menu')">
+						<fa-icon [icon]="faUtensils" style="font-size: 35px"></fa-icon>
+						<h5>Todo</h5>
+					</button>
 				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="row">
-					<div class="col-sm">
-						<button class="d-block w-100 rounded-3"  (click)="OnCategories('Combos')">
-							<img src="../../assets/icons/icons8-street-food-100.png" alt="" width="50px" >
-							<h5>Combos</h5>
-						</button>
-					</div>
-					<div class="col-sm">
-						<button class="d-block w-100 rounded-3"  (click)="OnCategories('Complementos')">
-							<fa-icon [icon]="faDrumstickBite"  style="font-size: 35px"></fa-icon>
-							<h5>Complementos</h5>
-						</button>
-					</div>
-					<div class="col-sm">
-						<button class="d-block w-100 rounded-3" (click)="OnCategories('Postres')"> 
-							<fa-icon [icon]="faIceCream"  style="font-size: 35px"></fa-icon>
-							<h5>Postres</h5>
-						</button>
-					</div>
+				<div class="col-sm">
+					<button class="d-block w-100 rounded-3"  (click)="OnCategories('Hamburguesas')">
+						<fa-icon [icon]="faHamburger"  style="font-size: 35px"></fa-icon>
+						<h5>Hamburguesas</h5>
+					</button>
+				</div>
+				<div class="col-sm">
+					<button class="d-block w-100 rounded-3"  (click)="OnCategories('Bebidas')">
+						<fa-icon [icon]="faGlassWhiskey"  style="font-size: 35px"></fa-icon>
+						<h5>Bebidas</h5>
+					</button>
 				</div>
 			</div>
 		</div>
-		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
-		</a>
+		<div class="carousel-item">
+			<div class="row">
+				<div class="col-sm">
+					<button class="d-block w-100 rounded-3"  (click)="OnCategories('Combos')">
+						<img src="../../assets/icons/icons8-street-food-100.png" alt="" width="50px" >
+						<h5>Combos</h5>
+					</button>
+				</div>
+				<div class="col-sm">
+					<button class="d-block w-100 rounded-3"  (click)="OnCategories('Complementos')">
+						<fa-icon [icon]="faDrumstickBite"  style="font-size: 35px"></fa-icon>
+						<h5>Complementos</h5>
+					</button>
+				</div>
+				<div class="col-sm">
+					<button class="d-block w-100 rounded-3" (click)="OnCategories('Postres')"> 
+						<fa-icon [icon]="faIceCream"  style="font-size: 35px"></fa-icon>
+						<h5>Postres</h5>
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>
+	<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	</a>
+</div>
 
-	
-	
-<section class="card__container">
-	<div *ngFor="let product of productCategory">
-		<h3>{{ product.name }}</h3>
-		<strong>{{ product.price }}</strong>
-		<img src="{{product.image}}" alt="">
+<section class="row row-cols-1 row-cols-md-3 g-4">
+<div class="col" *ngFor="let product of productCategory">
+	<div class="card h-100 border border-secondary border-2 mt-5 d-flex">
+		<div class="justify-content-center">
+			<img class="card-img-top" src="{{product.image}}" alt="">
+		</div>
+		<div class="card-body">
+			<h5 class="card-title text-center text-wrap">{{ product.name }}</h5>
+			<h5 class="card-text text-center">{{ product.price }}</h5>
+			<div class="d-grid gap-2 col-6 mx-auto">
+				<button class="btn btn-success" type="button" (click)="addProducts(product)">Añadir</button>
+			</div>
+		</div>
 	</div>
+</div>
 </section>
+
+
 	
 	
 	

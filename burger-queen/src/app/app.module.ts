@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { OrderComponent } from './components/order/order.component';
+import { OrderProductsComponent } from './components/order-products/order-products.component';
+import { KitchenComponent } from './views/kitchen/kitchen.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { OrderComponent } from './components/order/order.component';
     OrdersComponent,
     NavBarWaiterComponent,
     CategoriesComponent,
-    OrderComponent
+    OrderComponent,
+    OrderProductsComponent,
+    KitchenComponent
   ],
   imports: [
     BrowserModule,

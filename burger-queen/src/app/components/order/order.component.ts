@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ProductItem } from '../../models/product-item.model';
 import { DataService } from '../../services/data/data.service';
-import { Subscription } from 'rxjs';
-/* import { DataService } from '../../services/data.service';
-import { Subscription } from 'rxjs'; */
 
 @Component({
   selector: 'app-order',
@@ -10,19 +8,31 @@ import { Subscription } from 'rxjs'; */
   styleUrls: ['./order.component.sass']
 })
 export class OrderComponent implements OnInit, OnDestroy {
-  message!:string;
-  subscription!: Subscription;
 
+  productsOrder!: ProductItem[];
+  total!: number;
+  
   constructor(private data: DataService) {  }
 
   ngOnInit(): void {
-    this.subscription = this.data.currentMessage.subscribe(message => this.message = message)
-  }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.data.currentProduct.subscribe(product => this.productsOrder = product);
   }
 
-  newMessage() {
-    this.data.changeMessage("Hello from Sibling")
+  ngOnDestroy() {
+    
   }
+
+  sendOrder(){
+    this.data.cleanView();
+    console.log(this.data.cleanView());
+  }
+
+  totalAmount(){
+    // Calculate total
+    this.total = this.productsOrder.reduce((acc,obj,) => 
+      acc + (obj.totalAmount),0);
+
+      return this.total;
+  }
+
 }

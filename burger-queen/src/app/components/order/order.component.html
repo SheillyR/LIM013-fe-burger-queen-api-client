@@ -1,3 +1,29 @@
-<p>order works!</p>
-<h1>{{ message }}</h1>
-<button (click)="newMessage()">New Message</button>
+<div>
+<div class="d-flex h-100 justify-content-center">
+  <h2>Mesa N°</h2>
+  <select>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+  </select>
+</div>
+  <div class="input-group w-50">
+    <span class="input-group-text">Cliente</span>
+    <input type="text" aria-label="client" placeholder="Ingresar nombre del cliente" class="form-control">
+  </div>
+  <div>
+  <app-order-products [productsOrder]="productsOrder"></app-order-products>
+  </div>
+  <h4>Monto Total:</h4>
+  {{totalAmount()}}
+  <div class="d-grid col-6 mx-auto">
+    <button type="button" class="btn btn-primary" (click)="sendOrder()" routerLink="/orders">Enviar a cocina</button>
+  </div>
+</div>

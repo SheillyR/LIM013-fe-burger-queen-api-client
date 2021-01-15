@@ -11,18 +11,16 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./categories.component.sass']
 })
 export class CategoriesComponent implements OnInit, OnDestroy {
-  message!:string;
-  subscription!: Subscription;
-  
   faUtensils = faUtensils;
   faHamburger = faHamburger;
   faGlassWhiskey = faGlassWhiskey;
   faIceCream = faIceCream;
   faDrumstickBite = faDrumstickBite;
 
-
   product!: ProductI[];
   productCategory!: ProductI[];
+
+  productSelected!: ProductI[];
 
   constructor(private api: ApiService, private data: DataService) {}
   ngOnInit(){
@@ -32,13 +30,11 @@ export class CategoriesComponent implements OnInit, OnDestroy {
       this.productCategory = this.product;
       console.log(product);
     })
-
-    this.subscription = this.data.currentMessage.subscribe(message => this.message = message)
-
+    // this.data.currentProduct.subscribe(product=> this.product = product);
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    
   }
 
   OnCategories(category: string){
@@ -48,4 +44,11 @@ export class CategoriesComponent implements OnInit, OnDestroy {
       this.productCategory = this.product.filter(elem => elem.type === category);
     }
   }
+
+  addProducts(product: ProductI){
+    this.data.addProduct(product);
+    console.log(product);
+    }
 }
+
+

@@ -1,0 +1,18 @@
+<div *ngFor = "let product of productsOrder; let i = index"  class="h-100 d-flex m-2">
+  <img class="w-25 border border-warning border-2 rounded" src="{{ product.image }}" alt="">
+  <div class="d-flex">
+    <h5 class="card-title text-center text-wrap">{{ product.name }}</h5>
+      <button class="btn btn-link d-flex justify-content-start" (click)="decrement(i, product.amount, product.price)">
+        <fa-icon [icon]="faMinusCircle" style="font-size: 35px"></fa-icon>
+      </button>
+      {{ productsOrder[i].amount }}
+      <button class="btn btn-link" (click)="increment(i, product.amount, product.price)">
+        <fa-icon [icon]="faPlusCircle" style="font-size: 35px"></fa-icon>
+      </button>
+      {{ productsOrder[i].totalAmount }}
+      <button class="btn btn-link h-100 d-flex align-items-center justify-content-end" (click)="deleteItem(i)">
+        <fa-icon [icon]="faTrashAlt" style="font-size: 35px"></fa-icon>
+      </button>
+  </div>  
+</div> 
+
