@@ -1,4 +1,4 @@
-<div class="nav-color">
+<div class="nav-color sticky-top">
   <nav>
 		<ul class="nav d-flex justify-content-between">
 			<div class="d-flex p-2">
@@ -12,13 +12,22 @@
 						<fa-icon [icon]="faClipboardList" class="m-2"></fa-icon>Órdenes
 					</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white fs-5" routerLink="/kitchen" routerLinkActive="active">
+						<fa-icon [icon]="faClipboardList" class="m-2"></fa-icon>Cocina
+					</a>
+				</li>
 			</div>
 			<div class="d-flex p-2">
 				<li class="nav-item">
-					<a class="nav-link disabled text-white fs-5" tabindex="-1" aria-disabled="true" routerLinkActive="active">Sheilly Rodas</a>
+					<a class="nav-link disabled text-white fs-5" tabindex="-1" aria-disabled="true" routerLinkActive="active">
+						<div *ngFor="let user of user">
+							{{user.email}}
+						</div>
+					</a>
 				</li>
 				<li class="nav-item ms-4">
-					<a routerLink="/login" class="nav-link text-white fs-5" routerLinkActive="active">
+					<a routerLink="/login" class="nav-link text-white fs-5" routerLinkActive="active" (click)="SignOut()">
 						<fa-icon [icon]="faSignOutAlt" class="m-2"></fa-icon>Salir
 					</a>
 				</li>

@@ -5,6 +5,7 @@ import { LoginComponent } from './views/login/login.component';
 import { HomeWaiterComponent } from './views/home-waiter/home-waiter.component';
 import { OrdersComponent } from './views/orders/orders.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
+import { KitchenComponent } from './views/kitchen/kitchen.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'home-waiter',
     component: HomeWaiterComponent,
+  },
+  {
+    path: 'kitchen',
+    component: KitchenComponent,
   },
   {
     path: 'orders',

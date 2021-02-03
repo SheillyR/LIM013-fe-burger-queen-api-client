@@ -16,7 +16,7 @@ export class DataService {
   constructor() { }
 
   addProduct(product: ProductI) {
-    this.arrayProducts.push({...product, amount:1, totalAmount:product.price} );
+    this.arrayProducts.push({...product, amount:1, totalAmount:product.price});
     this.productSource.next(this.arrayProducts); 
   }
 

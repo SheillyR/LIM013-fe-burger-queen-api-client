@@ -1,7 +1,8 @@
-<div *ngFor = "let product of productsOrder; let i = index"  class="h-100 d-flex m-2">
+<div *ngFor = "let product of productsOrder; let i = index"  class="h-100 d-flex justify-content-center m-2">
   <img class="w-25 border border-warning border-2 rounded" src="{{ product.image }}" alt="">
-  <div class="d-flex">
-    <h5 class="card-title text-center text-wrap">{{ product.name }}</h5>
+  <div >
+    <h6 class="card-title text-center text-wrap">{{ product.name }}</h6>
+    <div class="d-flex justify-content-between">
       <button class="btn btn-link d-flex justify-content-start" (click)="decrement(i, product.amount, product.price)">
         <fa-icon [icon]="faMinusCircle" style="font-size: 35px"></fa-icon>
       </button>
@@ -13,6 +14,7 @@
       <button class="btn btn-link h-100 d-flex align-items-center justify-content-end" (click)="deleteItem(i)">
         <fa-icon [icon]="faTrashAlt" style="font-size: 35px"></fa-icon>
       </button>
+    </div>
   </div>  
 </div> 
 

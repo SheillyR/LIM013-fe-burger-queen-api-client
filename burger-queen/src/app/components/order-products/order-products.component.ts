@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProductI } from '../../models/product.model';
 import { ProductItem } from '../../models/product-item.model';
 import { faPlusCircle, faMinusCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,7 +13,7 @@ export class OrderProductsComponent implements OnInit {
   faMinusCircle = faMinusCircle;
 
   @Input() productsOrder!: ProductItem[];
-
+  result!: string;
   constructor() { }
 
   ngOnInit(): void {
@@ -23,13 +22,13 @@ export class OrderProductsComponent implements OnInit {
   increment(index: number, amount: number, price: number ){
     const counter = amount + 1;
     this.productsOrder[index].amount = counter;
-    this.productsOrder[index].totalAmount = counter * price;
+    this.productsOrder[index].totalAmount = parseFloat((counter * price).toFixed(2));
   }
 
   decrement(index: number, amount: number, price: number ){
     const counter = amount - 1;
     this.productsOrder[index].amount = counter;
-    this.productsOrder[index].totalAmount = counter * price;
+    this.productsOrder[index].totalAmount = parseFloat((counter * price).toFixed(2));
   }
 
   deleteItem(index: number){

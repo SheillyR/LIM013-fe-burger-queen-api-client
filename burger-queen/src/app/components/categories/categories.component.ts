@@ -4,6 +4,8 @@ import { ProductI } from '../../models/product.model';
 import { ApiService } from '../../services/api.service';
 import { DataService } from "../../services/data/data.service";
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-categories',
@@ -21,8 +23,10 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   productCategory!: ProductI[];
 
   productSelected!: ProductI[];
+  displaytoken!: string;
 
-  constructor(private api: ApiService, private data: DataService) {}
+  constructor(private api: ApiService, private data: DataService, private router: Router) {}
+  
   ngOnInit(){
     // Aqui obtenemos los productos de la API
     this.api.getAllProducts().subscribe(( product: ProductI[] )=> {

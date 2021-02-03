@@ -1,5 +1,6 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ProductI } from '../../models/product.model';
+import { UsersResponseI } from '../../models/users-response.model';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { ApiService } from '../../services/api.service';
 export class HomeWaiterComponent implements OnInit{
 
   product!: ProductI[];
+  user!: UsersResponseI[];
 
   constructor(private api: ApiService){
   }
@@ -18,6 +20,11 @@ export class HomeWaiterComponent implements OnInit{
     this.api.getAllProducts().subscribe(( product: ProductI[] )=> {
       this.product = product;
       console.log(product);
+    })
+
+    this.api.getUsers().subscribe((user: UsersResponseI[]) => {
+      this.user = user;
+      console.log(user);
     })
   }
 

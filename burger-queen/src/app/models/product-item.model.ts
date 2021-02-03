@@ -1,10 +1,10 @@
 export interface ProductItem {
-  id: string;
+  _id: string;
   name: string;
   price: number;
   image: string;
   type: string;
-  dataEntry: string; 
+  dataEntry: Date; 
   amount: number;
   totalAmount: number;
 }
